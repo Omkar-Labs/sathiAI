@@ -5,7 +5,7 @@ import Sidebar from './components/Sidebar';
 import ChatWindow from './components/ChatWindow';
 
 // Define the Socket server URL (defaulting to port 5000)
-const SOCKET_SERVER_URL = import.meta.env.BACKEND_URL;
+const SOCKET_SERVER_URL = import.meta.env.VITE_BACKEND_URL;
 
 
 export default function App() {
