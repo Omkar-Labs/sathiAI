@@ -1,0 +1,61 @@
+.message-bubble-wrapper {
+  display: flex;
+  width: 100%;
+  margin-bottom: 2px;
+}
+
+.message-bubble-wrapper.self {
+  justify-content: flex-end;
+}
+
+.message-bubble-wrapper.other {
+  justify-content: flex-start;
+}
+
+.message-bubble {
+  max-width: 65%;
+  padding: 10px 14px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.bubble-self {
+  background-color: var(--bg-bubble-self);
+  border: var(--bubble-border-self);
+  border-radius: 16px 16px 4px 16px;
+  color: var(--color-text-self);
+}
+
+.bubble-other {
+  background-color: var(--bg-bubble-other);
+  border: var(--bubble-border-other);
+  border-radius: 16px 16px 16px 4px;
+  color: var(--color-text-other);
+}
+
+.message-text {
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.message-timestamp {
+  font-size: 9px;
+  align-self: flex-end;
+  opacity: 0.5;
+}
+
+/* Add custom glow effects for Piyush sir messages in dark mode */
+.theme-piyush .bubble-self {
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.05);
+  text-shadow: 0 0 4px rgba(0, 240, 255, 0.2);
+}
+
+.theme-piyush .bubble-other {
+  box-shadow: 0 0 10px rgba(255, 0, 127, 0.05);
+  text-shadow: 0 0 4px rgba(255, 0, 127, 0.2);
+}
