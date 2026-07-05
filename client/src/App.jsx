@@ -11,6 +11,7 @@ const SOCKET_SERVER_URL = import.meta.env.VITE_BACKEND_URL;
 export default function App() {
   const [activePersona, setActivePersona] = useState('hitesh');
   const [socket,setSocket]=useState(null);
+  const [activeView, setActiveView] = useState('sidebar'); // 'sidebar' | 'chat' for mobile view
   // Track typing states individually for each persona
   const [typingState, setTypingState] = useState({
     hitesh: false,
@@ -110,6 +111,7 @@ export default function App() {
   // Handle Click on Sidebar Contact
   const handleSelectPersona = (personaId) => {
     setActivePersona(personaId);
+    setActiveView('chat');
   };
 
   // Send Message handler
@@ -135,7 +137,7 @@ export default function App() {
       socket.emit('send_message', {
         text: text,
         persona: activePersona,
-        timestamp: timestamp
+        timestamp: timestamp,
       });
     } else {
       console.warn('Socket is disconnected. Cannot send message via socket.');
@@ -170,7 +172,7 @@ export default function App() {
       />
 
       {/* Main Layout containing Sidebar and ChatWindow */}
-      <main className="main-layout">
+      <main className={`main-layout show-${activeView}`}>
         <Sidebar 
           activePersona={activePersona} 
           onSelectPersona={handleSelectPersona}
@@ -183,6 +185,7 @@ export default function App() {
           messages={chatHistories[activePersona]}
           isTyping={typingState[activePersona]}
           onSendMessage={handleSendMessage}
+          onBack={() => setActiveView('sidebar')}
         />
       </main>
     </div>

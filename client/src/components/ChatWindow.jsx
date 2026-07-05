@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Send, Phone, Video, Search, MoreVertical, Coffee, Terminal } from 'lucide-react';
+import { Send, Phone, Video, Search, MoreVertical, Coffee, Terminal, ArrowLeft } from 'lucide-react';
 import MessageBubble from './MessageBubble';
 import './ChatWindow.css';
 
-export default function ChatWindow({ activePersona, messages, isTyping, onSendMessage }) {
+export default function ChatWindow({ activePersona, messages, isTyping, onSendMessage, onBack }) {
   const [inputText, setInputText] = useState('');
   const messagesEndRef = useRef(null);
 
@@ -46,6 +46,11 @@ export default function ChatWindow({ activePersona, messages, isTyping, onSendMe
       {/* Top Header (WhatsApp Style) */}
       <header className="chat-header">
         <div className="header-user-info">
+          {onBack && (
+            <button className="chat-back-btn" onClick={onBack} aria-label="Back to chats">
+              <ArrowLeft size={20} />
+            </button>
+          )}
           <div className="avatar" style={{ background: details.avatarBg }}>
             <span className="avatar-text">{details.initials}</span>
             <span className="online-dot"></span>

@@ -14,7 +14,8 @@ export default function Navbar({ activePersona, onTogglePersona }) {
 
       <div className="persona-toggle-container">
         <span className={`toggle-label ${activePersona === 'hitesh' ? 'active' : ''}`}>
-          Hitesh Sir Mode
+          <span className="desktop-label">Hitesh Sir Mode</span>
+          <span className="mobile-label">Hitesh</span>
         </span>
         
         <button 
@@ -33,7 +34,8 @@ export default function Navbar({ activePersona, onTogglePersona }) {
         </button>
 
         <span className={`toggle-label ${activePersona === 'piyush' ? 'active' : ''}`}>
-          Piyush Sir Mode
+          <span className="desktop-label">Piyush Sir Mode</span>
+          <span className="mobile-label">Piyush</span>
         </span>
       </div>
     </nav>

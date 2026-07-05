@@ -173,3 +173,26 @@ body {
 .typing-dot:nth-child(3) {
   animation-delay: 0.4s;
 }
+
+/* Responsiveness overrides for Mobile Layout Toggle */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100% !important;
+    border-right: none !important;
+    display: none !important;
+  }
+
+  .chat-window {
+    width: 100% !important;
+    display: none !important;
+  }
+
+  .main-layout.show-sidebar .sidebar {
+    display: flex !important;
+  }
+
+  .main-layout.show-chat .chat-window {
+    display: flex !important;
+  }
+}
+
